@@ -18,17 +18,18 @@
 <body>
     <h1>Welcome BIGVU! </h1>
     <div class="content">
-
         <label for="urls">Enter Your URL:</label>
         <form id="urls" method="POST" action="/">
             <input type="text" id="URL" name="url">
             <input type="submit" value = "Capture!"/>
         </form>
-    <% if (path!=""){%>
+    <% if (path!="" && path!="ERROR"){%>
         <br>Video Successfuly Saved at: <%= path %>
         <h2>Thank You For Using Our Services!</h2>
-    <% }%>
 
+        <%}if (path=="ERROR") {%>
+            <script>alert("An Error Occured, Please Try Again!")</script>
+        <%}%>
 </div>
 
 

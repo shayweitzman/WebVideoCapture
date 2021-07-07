@@ -12,17 +12,17 @@ var videoPath = __dirname+"\\video.mp4"
 
 module.exports.videoPath= require('path').resolve(videoPath);
 
-module.exports.CreateVideo = function (url) {
+module.exports.CreateVideo = function (url) { // Take ScreenShot , and make video from it.
    ScreenShot.take(url);
    screenshotToVideo(picturePath);
 };
 
 
-function screenshotToVideo(picturePath, timeout=2000) {
+function screenshotToVideo(picturePath, timeout=2000) { // Make video from screenshot.
     const intervalObj = setInterval(function() {
         var file = picturePath;
         const fileExists = fs.existsSync(file);
-        if (fileExists) {
+        if (fileExists) { // If Picture already created. - check again every 2000 ms.
             var SECONDS = 10
             var images = [
                 {path: (picturePath), loop: SECONDS},
@@ -37,7 +37,7 @@ function screenshotToVideo(picturePath, timeout=2000) {
                 })
                 .on('end', function (output) {
                     console.log('Video created in:', output)
-                     fs.unlinkSync(file);
+                     fs.unlinkSync(file); // Delete the picture.
                 })
             clearInterval(intervalObj);
         }
