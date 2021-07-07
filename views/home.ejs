@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BIGVU</title>
+    <style>
+    .content {
+        max-width: 500px;
+        margin: auto;
+    }
+    body{background: skyblue; font-family:Verdana; color:#fff; padding:30px;}
+    h1{font-size:48px; text-transform: uppercase; letter-spacing: 2px;text-align:center;}
+    p{font-size: 16px; text-align: center;}
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <h1>Welcome BIGVU! </h1>
+    <div class="content">
+
+        <label for="urls">Enter Your URL:</label>
+        <form id="urls" method="POST" action="/">
+            <input type="text" id="URL" name="url">
+            <input type="submit" value = "Capture!"/>
+        </form>
+    <% if (path!=""){%>
+        <br>Video Successfuly Saved at: <%= path %>
+        <h2>Thank You For Using Our Services!</h2>
+    <% }%>
+
+</div>
+
+
+</body>
+</html>
